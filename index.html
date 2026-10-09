@@ -1,3 +1,12 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta property="og:title" content="원묵고등학교">
+<meta property="og:description" content="꿈과 이상을 실현하는 공교육의 새로운 모델">
+<meta property="og:image" content="img/poster.jpg">
+<link rel="icon" href="img/logo.png">
 <title>원묵고등학교</title>
 <meta name="description" content="꿈과 이상을 실현하는 공교육의 새로운 모델, 서울 중랑구 원묵고등학교">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -49,6 +58,8 @@
 }
 
 *{box-sizing:border-box}
+body{margin:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:var(--step-0);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;word-break:keep-all}
 img{display:block;max-width:100%}
@@ -487,7 +498,8 @@ footer .spring{font-family:var(--f-display);color:var(--band-gold);font-size:1.1
   .marquee .track{animation:none}
 }
 </style>
-
+</head>
+<body>
 <div class="progress" aria-hidden="true"><i id="prog"></i></div>
 
 <header class="nav" id="nav">
@@ -1076,3 +1088,5 @@ $$('.copy').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.copy;co
   try{navigator.clipboard.writeText(t).then(done,sel)}catch(e){sel()}}));
 })();
 </script>
+</body>
+</html>
