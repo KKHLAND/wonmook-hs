@@ -212,6 +212,11 @@ section{position:relative}
 .legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:.35rem;vertical-align:-1px}
 
 /* curriculum */
+.curri-photo{margin:0 0 clamp(36px,5vw,60px);background:#fff;border:1px solid var(--line);border-radius:22px;padding:clamp(10px,1.6vw,20px);box-shadow:0 30px 60px -40px rgba(10,40,30,.45);overflow:hidden}
+.curri-photo img{width:100%;height:auto;border-radius:12px;transition:transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.curri-photo:hover img{transform:scale(1.015)}
+.curri-photo figcaption{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.4rem 1rem;padding:.9rem .4rem .2rem;font-size:.86rem;color:#56675E}
+.curri-photo figcaption b{color:#0F3D2E}
 .curri{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.6fr);gap:clamp(24px,4vw,56px)}
 .tabs{display:flex;gap:.4rem;background:var(--surface-2);padding:.35rem;border-radius:999px;width:max-content;max-width:100%}
 .tabs button{border:0;background:none;font:600 .92rem var(--f-body);color:var(--muted);padding:.65rem 1.15rem;border-radius:999px;cursor:pointer;transition:background .3s,color .3s}
@@ -623,6 +628,11 @@ footer .spring{font-family:var(--f-display);color:var(--band-gold);font-size:1.1
       </div>
       <p class="lead reveal">예술·체육·교양까지 전 교과에 개방형 선택과목을 열고, 고교학점제를 안착시켰습니다. 1학년은 AI 융합 특화 과목으로 기초를 다지고, 2·3학년은 72개 과목 중 자기 진로에 맞는 과목을 고릅니다.</p>
     </div>
+
+    <figure class="curri-photo reveal">
+      <img src="img/curriculum.jpg" alt="교육과정 박람회에서 학생들이 선택과목 부스를 둘러보고 안내 자료를 읽는 모습" loading="lazy" width="1600" height="843">
+      <figcaption><b>교육과정 박람회 현장</b><span>선택과목 부스를 돌며 선배·선생님과 상담하고, 진로에 맞는 과목을 고릅니다.</span></figcaption>
+    </figure>
 
     <div class="curri">
       <div>
