@@ -357,6 +357,7 @@ section{position:relative}
 .mosaic button:hover::after,.mosaic button:focus-visible::after{opacity:1}
 .mosaic span{position:absolute;left:12px;bottom:10px;z-index:1;color:#fff;font-size:.82rem;font-weight:600;opacity:0;transform:translateY(6px);transition:opacity .4s,transform .4s}
 .mosaic button:hover span,.mosaic button:focus-visible span{opacity:1;transform:none}
+.mosaic .note{position:absolute;top:8px;left:8px;z-index:1;font-style:normal;font-size:.7rem;font-weight:600;letter-spacing:.02em;color:#fff;background:rgba(6,22,16,.62);backdrop-filter:blur(4px);padding:.2rem .55rem;border-radius:999px;pointer-events:none}
 .lightbox{position:fixed;inset:0;z-index:80;background:rgba(4,14,10,.92);display:grid;place-items:center;padding:calc(56px + env(safe-area-inset-top,0px)) 16px calc(56px + env(safe-area-inset-bottom,0px));animation:fade .3s both}
 .lightbox img{max-width:min(1200px,100%);max-height:100%;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6)}
 .lightbox p{position:absolute;left:0;right:0;bottom:calc(16px + env(safe-area-inset-bottom,0px));text-align:center;color:#E6EEE9;font-size:.9rem}
@@ -853,13 +854,13 @@ footer .spring{font-family:var(--f-display);color:var(--band-gold);font-size:1.1
     </div>
     <div class="mosaic stagger" id="mosaic">
       <button class="big" data-i="0" aria-label="정원 산책로와 쉼터 크게 보기"><img src="img/garden-1.jpg" alt="교사동 옆 소나무와 정자가 있는 정원 산책로" loading="lazy" width="1024" height="576"><span>정원 산책로와 쉼터</span></button>
-      <button data-i="1" aria-label="봄 · 벚꽃 핀 정원 크게 보기"><img src="img/season-spring.jpg" alt="벚꽃이 활짝 핀 봄 정원과 꽃밭" loading="lazy" width="1024" height="459"><span>봄 · 벚꽃 핀 정원</span></button>
+      <button data-i="1" aria-label="봄 · 벚꽃 핀 정원(계절 연출 이미지) 크게 보기" data-note="계절 연출 이미지"><img src="img/season-spring.jpg" alt="벚꽃이 활짝 핀 봄 정원과 꽃밭" loading="lazy" width="1024" height="459"><span>봄 · 벚꽃 핀 정원</span><em class="note">계절 연출 이미지</em></button>
       <button data-i="2" aria-label="여름 · 초록 그늘 쉼터 크게 보기"><img src="img/garden.jpg" alt="초록 나무 그늘 아래 파라솔이 있는 여름 정원" loading="lazy" width="799" height="418"><span>여름 · 초록 그늘 쉼터</span></button>
       <button data-i="3" aria-label="퍼걸러 쉼터 크게 보기"><img src="img/garden-4.jpg" alt="나무 퍼걸러와 벤치가 있는 정원 쉼터" loading="lazy" width="1024" height="576"><span>퍼걸러 쉼터</span></button>
       <button data-i="4" aria-label="소나무 사이 교사동 크게 보기"><img src="img/garden-5.jpg" alt="소나무 가지 사이로 보이는 교사동" loading="lazy" width="1024" height="576"><span>소나무 사이 교사동</span></button>
       <button class="wide" data-i="5" aria-label="숲속 나무 데크 길 크게 보기"><img src="img/garden-7.jpg" alt="숲 사이로 이어지는 나무 데크 길" loading="lazy" width="1024" height="576"><span>숲속 나무 데크 길</span></button>
-      <button data-i="6" aria-label="가을 · 단풍 든 정원 크게 보기"><img src="img/season-autumn.jpg" alt="노랗고 붉게 물든 가을 정원" loading="lazy" width="1024" height="457"><span>가을 · 단풍 든 정원</span></button>
-      <button data-i="7" aria-label="겨울 · 눈꽃 핀 정원 크게 보기"><img src="img/season-winter.jpg" alt="눈이 소복이 쌓인 겨울 정원" loading="lazy" width="1024" height="454"><span>겨울 · 눈꽃 핀 정원</span></button>
+      <button data-i="6" aria-label="가을 · 단풍 든 정원(계절 연출 이미지) 크게 보기" data-note="계절 연출 이미지"><img src="img/season-autumn.jpg" alt="노랗고 붉게 물든 가을 정원" loading="lazy" width="1024" height="457"><span>가을 · 단풍 든 정원</span><em class="note">계절 연출 이미지</em></button>
+      <button data-i="7" aria-label="겨울 · 눈꽃 핀 정원(계절 연출 이미지) 크게 보기" data-note="계절 연출 이미지"><img src="img/season-winter.jpg" alt="눈이 소복이 쌓인 겨울 정원" loading="lazy" width="1024" height="454"><span>겨울 · 눈꽃 핀 정원</span><em class="note">계절 연출 이미지</em></button>
     </div>
   </div>
 </section>
@@ -1126,7 +1127,7 @@ tickClock();setInterval(tickClock,15000);
 
 /* garden lightbox */
 const mos=$$('#mosaic button');let lb=null,li=0;
-function lbShow(i){li=(i+mos.length)%mos.length;const im=mos[li].querySelector('img');lb.querySelector('img').src=im.src;lb.querySelector('img').alt=im.alt;lb.querySelector('p').textContent=mos[li].querySelector('span').textContent+'  ·  '+(li+1)+' / '+mos.length}
+function lbShow(i){li=(i+mos.length)%mos.length;const im=mos[li].querySelector('img');lb.querySelector('img').src=im.src;lb.querySelector('img').alt=im.alt;const nt=mos[li].dataset.note;lb.querySelector('p').textContent=mos[li].querySelector('span').textContent+(nt?' ('+nt+')':'')+'  ·  '+(li+1)+' / '+mos.length}
 function lbOpen(i){lb=document.createElement('div');lb.className='lightbox';lb.setAttribute('role','dialog');lb.setAttribute('aria-modal','true');lb.setAttribute('aria-label','원묵 정원 사진');
   lb.innerHTML='<img alt=""><p></p><button class="lb-close" aria-label="닫기">✕</button><button class="lb-prev" aria-label="이전 사진">‹</button><button class="lb-next" aria-label="다음 사진">›</button>';
   document.body.appendChild(lb);lbShow(i);
